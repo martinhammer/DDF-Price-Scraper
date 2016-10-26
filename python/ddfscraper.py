@@ -5,4 +5,7 @@ url = "http://online.dubaidutyfree.com/ddf/category/liquor-whisky-single-malt-wh
 page = urllib2.urlopen( url )
 soup = BeautifulSoup( page )
 
-print soup
+products = soup.find_all( "div", attrs = { 'class':'prod-title' } )
+
+for product in products:
+	print( product.div.string )
